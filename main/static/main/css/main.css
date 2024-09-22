@@ -1,0 +1,7 @@
+body {
+    background-color: #ddd;
+}
+
+.aside li a:hover {
+    color: #bbb !important;
+}

@@ -1,0 +1,25 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Новости{% endblock %}
+
+{% block text %}
+    <h2>Новости</h2>
+    {% if news %}
+    {% for el in news %}
+    <div class="card my-3" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ el.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ el.anons }}</h6>
+            <p class="card-text">{{ el.text }}</p>
+            <i>{{el.date}}</i><br>
+            <a href={% url "detail-view" el.id %} class='btn btn-success mt-2'>Подробно</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>Новосей нет</h2>
+    {% endif %}
+    <a href={% url 'create_new' %}>
+        <button class='btn btn-secondary'>Добавить</button>
+    </a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block text %}
+    <h1>Главная страница</h1>
+    <h2>{{ data.title }}</h2>
+    <ul>
+        {% for name in data.list %}
+            {% if name|length < 4 %}
+            <li style='color: red'>{{name}}</li>
+            {% else %}
+            <li style='color: green'>{{name}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% include "main/test.html" %}
+
+    <button class='btn btn-dark'>Добавить</button>
+{% endblock %}
+
